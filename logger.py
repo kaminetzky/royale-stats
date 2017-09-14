@@ -79,9 +79,3 @@ class Logger:
         new_crowns = [(member['name'], member['clanChestCrowns']) for member in
                       data['members']]
         self.log_data(path, new_crowns, True)
-
-
-if __name__ == '__main__':
-    logger = Logger('2UQ2JJC')
-    logger.log_donations()
-    logger.log_crowns()
