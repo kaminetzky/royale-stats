@@ -8,5 +8,5 @@ class Wrapper:
     def get_json(self):
         try:
             return requests.get(self.url).json()
-        except requests.RequestException:
-            return {'OK': False}
+        except requests.exceptions.RequestException as err:
+            return {'ok': False, 'error': err}
