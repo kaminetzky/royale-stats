@@ -70,12 +70,16 @@ class Logger:
 
     def log_donations(self, path='donations.csv'):
         data = self.wrapper.get_json()
+        if ('OK', False) in data.items():
+            return False
         new_donations = [[member['name'], member['donations']] for member in
                          data['members']]
         self.log_data(path, new_donations, True)
 
     def log_crowns(self, path='crowns.csv'):
         data = self.wrapper.get_json()
+        if ('OK', False) in data.items():
+            return False
         new_crowns = [(member['name'], member['clanChestCrowns']) for member in
                       data['members']]
         self.log_data(path, new_crowns, True)
