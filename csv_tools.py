@@ -4,7 +4,6 @@ import os
 
 
 def remove_column(path, index):
-
     if not os.path.exists(path):
         logging.error('File does not exist.')
         return False
