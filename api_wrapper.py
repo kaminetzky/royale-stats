@@ -5,10 +5,12 @@ import logging
 class Wrapper:
     def __init__(self, clan_tag):
         self.url = 'http://api.cr-api.com/clan/' + clan_tag
+        self.data = None
+        self.update_data()
 
-    def get_json(self):
+    def update_data(self):
         try:
-            return requests.get(self.url).json()
+            self.data = requests.get(self.url).json()
         except requests.exceptions.RequestException as err:
             logging.error(err)
-            return {'error': True, 'message': err}
+            self.data = {'error': True, 'message': err}

@@ -1,10 +1,15 @@
 from logger import Logger
 import logging
+import sys
 
 logging.basicConfig(level=logging.INFO)
 
 if __name__ == '__main__':
-    clan_tag = '2UQ2JJC'
+    if len(sys.argv) != 2:
+        logging.error('Usage: python3 main.py clan_id')
+        sys.exit(1)
+
+    clan_tag = sys.argv[1]
     logger = Logger(clan_tag)
     logger.log_donations()
     logger.log_crowns()

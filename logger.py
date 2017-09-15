@@ -70,7 +70,7 @@ class Logger:
                 writer.writerows(new_data)
 
     def log_donations(self, path='donations.csv'):
-        data = self.wrapper.get_json()
+        data = self.wrapper.data
         if ('error', True) in data.items():
             logging.error('Could not get data. Donations will not be saved.')
             return False
@@ -80,7 +80,7 @@ class Logger:
         logging.info('Successfully saved donation data.')
 
     def log_crowns(self, path='crowns.csv'):
-        data = self.wrapper.get_json()
+        data = self.wrapper.data
         if ('error', True) in data.items():
             logging.error('Could not get data. Crowns will not be saved.')
             return False
