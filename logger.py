@@ -23,9 +23,9 @@ class Logger:
                 else:
                     dayweek_row, datetime_row, *data = list(reader)
 
-            dayweek_row.append(datetime.datetime.now().strftime(
+            dayweek_row.append(datetime.datetime.utcnow().strftime(
                 "%A %W"))
-            datetime_row.append(datetime.datetime.now().strftime(
+            datetime_row.append(datetime.datetime.utcnow().strftime(
                 "%Y-%m-%d %H:%M:%S"))
 
             if log_total:
@@ -61,10 +61,10 @@ class Logger:
             with open(path, 'w') as file:
                 new_data.sort()
                 writer = csv.writer(file)
-                writer.writerow(['Day / Week', datetime.datetime.now().strftime(
-                    "%A %W")])
-                writer.writerow(['Datetime', datetime.datetime.now().strftime(
-                    "%Y-%m-%d %H:%M:%S")])
+                writer.writerow(['Day / Week', datetime.datetime.utcnow(
+                    ).strftime("%A %W")])
+                writer.writerow(['Datetime', datetime.datetime.utcnow(
+                    ).strftime("%Y-%m-%d %H:%M:%S")])
                 if log_total:
                     writer.writerow(['Total', total])
                 writer.writerows(new_data)
