@@ -5,8 +5,7 @@ The following values of every player can be saved:
 * Current weekly donations
 * Last clan chest crowns
 
-To log the clan's information the `main.py` file needs to be run. Reddit 
-Tau's clan ID is set by default, but this string should be changed to the 
-desired clan's ID.
+To log the clan's information the `main.py` file needs to be run from the 
+command line in the following way: `python3 main.py clan_id`. 
 
 Please create an issue if you have any doubt, problem, suggestion or comment.
