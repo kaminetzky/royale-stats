@@ -1,4 +1,5 @@
 import requests
+import logging
 
 
 class Wrapper:
@@ -9,4 +10,5 @@ class Wrapper:
         try:
             return requests.get(self.url).json()
         except requests.exceptions.RequestException as err:
+            logging.error(err)
             return {'ok': False, 'error': err}

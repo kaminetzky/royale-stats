@@ -2,6 +2,7 @@ from api_wrapper import Wrapper
 import os
 import datetime
 import csv
+import logging
 
 
 class Logger:
@@ -71,15 +72,19 @@ class Logger:
     def log_donations(self, path='donations.csv'):
         data = self.wrapper.get_json()
         if ('ok', False) in data.items():
+            logging.error('Could not get data. Donations will not be saved.')
             return False
         new_donations = [[member['name'], member['donations']] for member in
                          data['members']]
         self.log_data(path, new_donations, True)
+        logging.info('Successfully saved donation data.')
 
     def log_crowns(self, path='crowns.csv'):
         data = self.wrapper.get_json()
         if ('ok', False) in data.items():
+            logging.error('Could not get data. Crowns will not be saved.')
             return False
         new_crowns = [(member['name'], member['clanChestCrowns']) for member in
                       data['members']]
         self.log_data(path, new_crowns, True)
+        logging.info('Successfully saved crown data.')
