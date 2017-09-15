@@ -71,7 +71,7 @@ class Logger:
 
     def log_donations(self, path='donations.csv'):
         data = self.wrapper.get_json()
-        if ('ok', False) in data.items():
+        if ('error', True) in data.items():
             logging.error('Could not get data. Donations will not be saved.')
             return False
         new_donations = [[member['name'], member['donations']] for member in
@@ -81,7 +81,7 @@ class Logger:
 
     def log_crowns(self, path='crowns.csv'):
         data = self.wrapper.get_json()
-        if ('ok', False) in data.items():
+        if ('error', True) in data.items():
             logging.error('Could not get data. Crowns will not be saved.')
             return False
         new_crowns = [(member['name'], member['clanChestCrowns']) for member in

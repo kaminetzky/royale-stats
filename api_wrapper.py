@@ -11,4 +11,4 @@ class Wrapper:
             return requests.get(self.url).json()
         except requests.exceptions.RequestException as err:
             logging.error(err)
-            return {'ok': False, 'error': err}
+            return {'error': True, 'message': err}
