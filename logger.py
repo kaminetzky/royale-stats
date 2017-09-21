@@ -69,22 +69,22 @@ class Logger:
                     writer.writerow(['Total', total])
                 writer.writerows(new_data)
 
-    def log_donations(self, path='donations.csv'):
+    def log_donations(self, path='donations.csv', log_total=True):
         data = self.wrapper.data
         if ('error', True) in data.items():
             logging.error('Could not get data. Donations will not be saved.')
             return False
         new_donations = [[member['name'], member['donations']] for member in
                          data['members']]
-        self.log_data(path, new_donations, True)
+        self.log_data(path, new_donations, log_total)
         logging.info('Successfully saved donation data.')
 
-    def log_crowns(self, path='crowns.csv'):
+    def log_crowns(self, path='crowns.csv', log_total=True):
         data = self.wrapper.data
         if ('error', True) in data.items():
             logging.error('Could not get data. Crowns will not be saved.')
             return False
         new_crowns = [(member['name'], member['clanChestCrowns']) for member in
                       data['members']]
-        self.log_data(path, new_crowns, True)
+        self.log_data(path, new_crowns, log_total)
         logging.info('Successfully saved crown data.')
