@@ -16,7 +16,7 @@ class Logger:
             total = sum([player[1] for player in new_data])
 
         if os.path.exists(path):
-            with open(path, 'r') as file:
+            with open(path, 'r', encoding='utf-8') as file:
                 reader = csv.reader(file)
                 if log_total:
                     dayweek_row, datetime_row, total_row, *data = list(reader)
@@ -49,7 +49,7 @@ class Logger:
 
             data.sort()
 
-            with open(path, 'w') as file:
+            with open(path, 'w', encoding='utf-8') as file:
                 writer = csv.writer(file)
                 writer.writerow(dayweek_row)
                 writer.writerow(datetime_row)
@@ -58,7 +58,7 @@ class Logger:
                 writer.writerows(data)
 
         else:
-            with open(path, 'w') as file:
+            with open(path, 'w', encoding='utf-8') as file:
                 new_data.sort()
                 writer = csv.writer(file)
                 writer.writerow(['Day / Week', datetime.datetime.utcnow(
