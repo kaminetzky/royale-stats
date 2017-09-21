@@ -8,4 +8,6 @@ The following values of every player can be saved:
 To log the clan's information the `main.py` file needs to be run from the 
 command line in the following way: `python3 main.py clan_id`. 
 
+The time in the "Datetime" row is UTC.
+
 Please create an issue if you have any doubt, problem, suggestion or comment.
