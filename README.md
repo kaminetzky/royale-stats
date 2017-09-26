@@ -1,4 +1,4 @@
-# RoyaleStats
+# royale-stats
 The purpose of this project is to easily log a Clash Royale clan's information.
 
 The following values of every player can be saved:
