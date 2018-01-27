@@ -6,8 +6,8 @@ import logging
 
 
 class Logger:
-    def __init__(self, clan_tag):
-        self.wrapper = Wrapper(clan_tag)
+    def __init__(self, key, clan_tag):
+        self.wrapper = Wrapper(key, clan_tag)
 
     @staticmethod
     def log_data(path, new_data, log_total):

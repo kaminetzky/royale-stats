@@ -9,7 +9,10 @@ if __name__ == '__main__':
         logging.error('Usage: python3 main.py clan_id')
         sys.exit(1)
 
+    # Insert your key in the next line
+    key = '<YOUR KEY>'
+
     clan_tag = sys.argv[1]
-    logger = Logger(clan_tag)
+    logger = Logger(key, clan_tag)
     logger.log_donations()
     logger.log_crowns()
