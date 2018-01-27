@@ -10,9 +10,10 @@ if __name__ == '__main__':
         sys.exit(1)
 
     # Insert your key in the next line
-    key = '<YOUR KEY>'
+    key = '<YOUR TOKEN>'
 
     clan_tag = sys.argv[1]
     logger = Logger(key, clan_tag)
     logger.log_donations()
     logger.log_crowns()
+    print('asd')

@@ -11,6 +11,9 @@ class Logger:
 
     @staticmethod
     def log_data(path, new_data, log_total):
+        new_data = [(row[0], row[1] if row[1] is not None else 0) for row in
+                    new_data]
+        print(new_data)
 
         if log_total:
             total = sum([player[1] for player in new_data])
