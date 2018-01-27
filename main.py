@@ -16,4 +16,3 @@ if __name__ == '__main__':
     logger = Logger(key, clan_tag)
     logger.log_donations()
     logger.log_crowns()
-    print('asd')
