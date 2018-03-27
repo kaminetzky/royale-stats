@@ -14,5 +14,5 @@ if __name__ == '__main__':
 
     clan_tag = sys.argv[1]
     logger = Logger(key, clan_tag)
-    logger.log_donations()
-    logger.log_crowns()
+    logger.log_donations('donations_2018.csv')
+    logger.log_crowns('crowns_2018.csv')
