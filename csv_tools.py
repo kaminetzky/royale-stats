@@ -6,7 +6,7 @@ import os
 def remove_column(path, index):
     if not os.path.exists(path):
         logging.error('File does not exist.')
-        return False
+        raise FileNotFoundError()
 
     with open(path, 'r') as file:
         reader = csv.reader(file)
@@ -26,7 +26,16 @@ def remove_column(path, index):
         writer.writerows(new_data)
 
 
-if __name__ == '__main__':
-    pass
-    # remove_column('donations.csv', 1)
-    # remove_column('crowns.csv', 1)
+def remove_non_members(input_path, output_path):
+    if not os.path.exists(input_path):
+        logging.error('File does not exist.')
+        raise FileNotFoundError()
+
+    with open(input_path, 'r') as input_file,\
+            open(output_path, 'w') as output_file:
+        reader = csv.reader(input_file)
+        writer = csv.writer(output_file)
+        for line in reader:
+            if line[-1] != '':
+                writer.writerow(line)
+
